@@ -1,0 +1,166 @@
+/*todo _ Lucas Anthony pelamordeDeus organize depois esse css pq tem muia coisa redundante aqui que pode ser otimizada :) */
+
+body {
+  background-color: #F1F1F1;
+  margin: 0;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.main-login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+.left {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.logo {
+  position: relative;
+  z-index: 2;
+  max-width: 60%;
+  margin: auto;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F1F1F1;
+}
+
+.login-container {
+  background-color: #FFFDFD;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  /*todo _ ARRUMAR ESSA SOMBRA NÃO ESQUECER */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  color: #1f4843;
+  font-weight: 800;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #DEE2E6;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.error-box {
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+  color: #a94442;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.register-button {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.register-button:hover {
+  background-color: #cccccc;
+}
+
+button {
+  font-size: 20px;
+  color: #fff;
+  background-color: #1f4843;
+  padding: 10px 48px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px auto;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #163d3a;
+}
+
+@media (max-width: 900px) {
+  .main-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../assets/img_login.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .left {
+    /* display: none; */
+    margin-bottom: 40px;
+  }
+
+  .logo {
+    max-width: 50%;
+    margin-bottom: 20px;
+  }
+
+  .background {
+    display: none;
+  }
+
+  .right {
+    width: 100%;
+    padding: 0;
+    background-color: #ffffff00;
+  }
+
+  .login-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #FFFDFD;
+    /* padding: 20px; */
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
