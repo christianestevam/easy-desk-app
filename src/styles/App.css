@@ -1,0 +1,18 @@
+.app-login-btn{
+  background-color: rgb(95, 179, 248);
+  margin: 20px;
+}
+
+.app-register-btn{
+  background-color: rgb(141, 250, 131);
+  margin: 20px;
+}
+
+.app-dashboard-btn{
+  background-color: rgb(255, 75, 75);
+  margin: 20px;
+}
+
+.app-login-btn a, .app-register-btn a, .app-dashboard-btn a{
+  color: black;
+}

@@ -1,25 +1,30 @@
-import React, { useState } from "react";
-import "../pages/Login.css";
+import React, { useState, useEffect } from "react";
+import "../styles/Login.css";
 import img_login from "../assets/img_login.jpg";
 import logo from "../assets/Logotipo.svg";
 import AuthService from "../services/AuthService";
-
-// import { useHistory } from "react-router-dom";  //todo_ resolver esse erro de redirecionamento
+import { Link, useNavigate } from "react-router-dom";
+import clearJwt from "../services/ClearJwt";
 
 function Login() {
   const [username, setUsername] = useState("llucas@teste.com");
-  const [password, setPassword] = useState("senh");
-  const [error, setError] = useState("Christian big dog");
+  const [password, setPassword] = useState("senha");
+  const [error, setError] = useState("");
 
-  // const history = useHistory();
+  useEffect(() => {
+    clearJwt();
+  }, []);
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
       const response = await AuthService.login(username, password);
       console.log("Login bem-sucedido:", response);
-      // history.push("/dashboard");
+      navigate("/dashboard");
     } catch (err) {
       setError(err.message);
       setPassword("");
@@ -54,8 +59,8 @@ function Login() {
             <div className="form-buttons">
               <button type="submit">Entrar</button>
 
-              <button type="button" className="register-button" /* onClick={() => history.push("/register")} */>
-                Registrar-se
+              <button type="button" className="register-button">
+                <Link to="/register">Registrar-se</Link>
               </button>
             </div>
           </form>
