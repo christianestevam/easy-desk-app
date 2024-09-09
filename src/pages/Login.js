@@ -5,6 +5,7 @@ import logo from "../assets/Logotipo.svg";
 import AuthService from "../services/AuthService";
 import { Link, useNavigate } from "react-router-dom";
 import clearJwt from "../services/ClearJwt";
+import CheckRestaurant from "../services/CheckRestaurant";
 
 function Login() {
   const [username, setUsername] = useState("llucas@teste.com");
@@ -24,7 +25,13 @@ function Login() {
     try {
       const response = await AuthService.login(username, password);
       console.log("Login bem-sucedido:", response);
-      navigate("/dashboard");
+      const hasRestaurant = await CheckRestaurant();
+
+      if (hasRestaurant) {
+        navigate("/dashboard");
+      } else {
+        navigate("/register-restaurant");
+      }
     } catch (err) {
       setError(err.message);
       setPassword("");
@@ -33,7 +40,6 @@ function Login() {
 
   return (
     <div className="main-login">
-      
       <div className="left">
         <img src={img_login} alt="background" className="background" />
         <img src={logo} alt="logo" className="logo" />
@@ -44,16 +50,24 @@ function Login() {
           <h2>Fazer Login</h2>
 
           {error && <div className="error-box">{error}</div>}
-          
+
           <form onSubmit={handleLogin}>
             <div>
               <label>E-mail</label>
-              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </div>
 
             <div>
               <label>Senha</label>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
 
             <div className="form-buttons">
@@ -64,7 +78,6 @@ function Login() {
               </button>
             </div>
           </form>
-
         </div>
       </div>
     </div>

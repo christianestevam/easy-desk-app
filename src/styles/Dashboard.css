@@ -1,0 +1,10 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  background-color: #F1F1F1;
+}
+
+.order-list {
+  display: flex;
+  padding: 20px;
+}

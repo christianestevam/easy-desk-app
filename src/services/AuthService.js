@@ -15,10 +15,10 @@ const login = async (username, password) => {
 };
 
 const register = async (registerRequest) => {
-  try {
+  try{
     const response = await axios.post(`${API_URL}/register`, registerRequest);
     return response.data;
-  } catch (error) {
+  }catch(error){
     throw new Error('Erro ao registrar: ' + error.response.data.message || 'Erro desconhecido');
   }
 };

@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import "../styles/Register.css";
 import logo from "../assets/Logotipo.svg";
+
 import AuthService from "../services/AuthService";
-import { Link, useNavigate } from "react-router-dom";
 import clearJwt from "../services/ClearJwt";
 
-import Login from "./Login";
-
 function Register(){
+  useEffect(() => {
+    clearJwt();
+  }, []);
+
+  const navigate = useNavigate();
+
+  const [errorMessage, setErrorMessage] = useState("");
+
   const [formData, setFormData] = useState({
     name: "",
     document: "",
@@ -15,14 +23,6 @@ function Register(){
     email: "",
     password: "",
   });
-
-  useEffect(() => {
-    clearJwt();
-  }, []);
-
-  const navigate = useNavigate();
-
-  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +34,7 @@ function Register(){
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setErrorMessage("");
     
     try {
       const registerRequest = {
@@ -47,10 +47,9 @@ function Register(){
       
       const response = await AuthService.register(registerRequest);
       console.log("Registro bem-sucedido:", response);
-      
       navigate("/login");
     } catch (err) {
-      setError(err.message);
+      setErrorMessage(err.message);
     }
   };
 
@@ -67,7 +66,7 @@ function Register(){
         <div className="register-container">
           <h2>Insira seus dados</h2>
 
-          {error && <div className="error-box">{error}</div>}
+          {errorMessage && <div className="error-box">{errorMessage}</div>}
 
           <form onSubmit={handleSubmit}>
             <div>
