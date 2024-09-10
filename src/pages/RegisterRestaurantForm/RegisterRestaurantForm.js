@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import RegisterRestaurant from "../../services/RegisterRestaurant";
@@ -7,27 +7,33 @@ import "./RegisterRestaurantForm.css";
 
 function RegisterRestaurantForm() {
   const navigate = useNavigate();
-
   const [errorMessage, setErrorMessage] = useState("");
 
   const [restaurantData, setRestaurantData] = useState({
-    nome: "LucasRES",
-    cnpj: "11123",
-    telefone: "123321",
+    nome: "Lucas - RES",
+    cnpj: "123",
+    telefone: "321",
     endereco: {
       logradouro: "Rua acula",
-      numero: "1123",
-      complemento: "n tem",
-      bairro: "centro",
-      cidade: "paraipeba",
+      numero: "0",
+      complemento: "Perto da galinha",
+      bairro: "Cedro",
+      cidade: "Quixas",
       estado: "CE",
-      cep: "63687123"
+      cep: "616161300"
     },
   });
 
+  useEffect(() => {
+    const token = localStorage.getItem("user");
+    if (!token) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+
     if (["logradouro", "numero", "complemento", "bairro", "cidade", "estado", "cep"].includes(name)) {
       setRestaurantData((prevData) => ({
         ...prevData,
@@ -42,7 +48,7 @@ function RegisterRestaurantForm() {
         [name]: value,
       }));
     }
-  };  
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

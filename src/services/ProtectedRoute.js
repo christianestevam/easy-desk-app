@@ -1,25 +1,39 @@
-import React, { useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CheckRestaurant from "./CheckRestaurant";
 
 function ProtectedRoute({ children }) {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [hasAccess, setHasAccess] = useState(false);
   const token = localStorage.getItem("user");
 
   useEffect(() => {
-    if (!token) {
-      navigate("/login");
-      return;
-    }
+    const verifyAccess = async () => {
+      if (!token) {
+        navigate("/login");
+        return;
+      }
 
-    // const hasRestaurant = CheckRestaurant();
-    // if (!hasRestaurant) {
-    //   navigate("/register-restaurant");
-    //   return;
-    // }
+      const hasRestaurant = await CheckRestaurant();
+
+      if (!hasRestaurant) {
+        navigate("/register-restaurant");
+      } else {
+        setHasAccess(true);
+      }
+
+      setLoading(false);
+    };
+
+    verifyAccess();
   }, [navigate, token]);
 
-  return token ? children : navigate("/login");
+  if (loading) {
+    return <div>Verificando acesso...</div>;
+  }
+
+  return hasAccess ? children : null;
 }
 
 export default ProtectedRoute;

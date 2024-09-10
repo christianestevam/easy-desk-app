@@ -129,9 +129,7 @@ function Register(){
                 Finalizar Cadastro
               </button>
 
-              <button type="button" className="login-btn" onClick={() => navigate("/login")}>
-                <Link to="/login">Login</Link>
-              </button>
+              <span>Já tem conta? <Link to="/login">Faça Login</Link></span>
 
             </div>
           </form>

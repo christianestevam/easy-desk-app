@@ -86,11 +86,15 @@ input {
   border-radius: 8px;
   box-sizing: border-box;
 }
-
+.form-buttons a{
+  display: inline;
+  color: #333;
+  font-weight: 600;
+}
 .form-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
 }
 
 button {

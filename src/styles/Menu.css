@@ -1,0 +1,32 @@
+.menu {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.menu-content h2 {
+  color: #1f4843;
+  text-align: center;
+  font-weight: 800;
+  font-size: 28px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.mn-button {
+  background-color: #1f4843;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  display: inline;
+  padding: 15px 20px;
+  text-align: center;
+  display: inline-block;
+  
+  /* vergona alheia, perdi para o botão */
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}

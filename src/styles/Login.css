@@ -1,6 +1,3 @@
-/*todo_ Lucas Anthony pelamordeDeus organize depois esse css pq tem muia coisa redundante aqui que pode ser otimizada :) */
-/*todo_ Arrumar os botões do form! */
-
 body {
   background-color: #F1F1F1;
   margin: 0;
@@ -96,6 +93,24 @@ input {
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
+}
+
+.lg-form-buttons {
+  text-align: center;
+}
+
+.lg-form-buttons button {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 60px;
+  margin-bottom: 20px;
+}
+
+.lg-form-buttons a {
+  color: #333;
+  font-weight: 600;
+  display: inline;
 }
 
 .register-button {

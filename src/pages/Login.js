@@ -70,12 +70,10 @@ function Login() {
               />
             </div>
 
-            <div className="form-buttons">
+            <div className="lg-form-buttons">
               <button type="submit">Entrar</button>
 
-              <button type="button" className="register-button">
-                <Link to="/register">Registrar-se</Link>
-              </button>
+              <span>Não tem conta? <Link to="/register">Cadastre-se</Link></span>
             </div>
           </form>
         </div>

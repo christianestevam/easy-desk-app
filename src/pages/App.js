@@ -2,41 +2,35 @@ import "../styles/App.css";
 
 import { Link } from "react-router-dom";
 
-import logo from "../assets/Logotipo_verde.svg";
+import logo from "../assets/Logotipo.svg";
 import figure from "../assets/Coffee shop-bro 1.png";
-import bgfooter from "../assets/Vector.png";
-import bgfooter2 from "../assets/Vector-1.png";
 
 function App() {
   return (
     <div className="landing-page">
       <div className="lp-left">
-        <img src={logo} alt="logo" className="lp-logo" />
         <img src={figure} alt="figure" className="lp-figure" />
-        <img src={bgfooter} alt="bg-footer" className="lp-bgfooter" />
-        <img src={bgfooter2} alt="bg-footer1" className="lp-bgfooter2" />
+        <img src={logo} alt="logo" className="lp-logo" />
       </div>
 
       <div className="lp-right">
-        <h2 className="lp-title">
-          Mude a maneira que você gerencia seus pedidos.
-        </h2>
-
-        <div>
+        <div className="lp-content-1">
+          <h2 className="lp-title">
+            Mude a maneira que você <br/> gerencia seus pedidos.
+          </h2>
           <Link to="/register">
-            <button className="lp-button">Quero me inscrever</button>
-          </Link>
-          <br />
-          <span>Já é cliente? </span>
-          <Link to="/login" className="lp-login">
-            Entrar
+            <button className="lp-button-1">Crie sua conta</button>
           </Link>
         </div>
 
-        <a className="lp-terms" href="/">
-          Termos e condições
-        </a>
+        <div className="lp-content-2">
+          <h2 className="lp-title">Já possui cadastro?</h2>
+          <Link to="/login">
+            <button className="lp-button-2">Fazer login</button>
+          </Link>
+        </div>
       </div>
+
     </div>
   );
 }

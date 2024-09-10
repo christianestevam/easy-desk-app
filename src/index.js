@@ -4,12 +4,13 @@ import "./styles/index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import ProtectedRoute from "./services/ProtectedRoute"; // Letra maiúscula no nome do componente
+import ProtectedRoute from "./services/ProtectedRoute";
 
 import App from "./pages/App";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import RegisterRestaurantForm from "./pages/RegisterRestaurantForm/RegisterRestaurantForm";
+import RegisterMenuForm from "./pages/RegisterMenuForm/RegisterMenuForm";
 
 import Dashboard from "./pages/Dashboard";
 import Menu from "./pages/Menu";
@@ -55,9 +56,17 @@ const router = createBrowserRouter([
   {
     path: "/register-restaurant",
     element: (
-      <ProtectedRoute>
+      // <ProtectedRoute>
         <RegisterRestaurantForm />
-      </ProtectedRoute>
+      // </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/register-menu",
+    element: (
+      // <ProtectedRoute>
+        <RegisterMenuForm />
+      // </ProtectedRoute>
     ),
   },
 ]);
