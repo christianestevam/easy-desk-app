@@ -1,4 +1,5 @@
 import axios from "axios";
+import config from "../config";
 
 const OrderService = {
   async createOrder(orderData) {
@@ -9,7 +10,7 @@ const OrderService = {
         throw new Error("Token não encontrado.");
       }
 
-      const response = await axios.post("http://localhost:8080/api/comanda", orderData, {
+      const response = await axios.post(`${config.backendUrl}/comanda`, orderData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -32,7 +33,7 @@ const OrderService = {
         throw new Error("Token não encontrado.");
       }
 
-      const response = await axios.get("http://localhost:8080/api/comanda", {
+      const response = await axios.get(`${config.backendUrl}/comanda`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -58,7 +59,7 @@ const OrderService = {
       }
 
       const response = await axios.put(
-        `http://localhost:8080/api/comanda/${orderId}/fechar`,
+        `${config.backendUrl}/comanda/${orderId}/fechar`,
         {},
         {
           headers: {
@@ -86,7 +87,7 @@ const OrderService = {
       }
 
       const response = await axios.put(
-        `http://localhost:8080/api/comanda/${orderId}/status`,
+        `${config.backendUrl}/comanda/${orderId}/status`,
         { status: newStatus },
         {
           headers: {

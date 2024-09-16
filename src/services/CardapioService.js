@@ -1,4 +1,5 @@
 import axios from 'axios';
+import config from "../config";
 
 const CardapioService = {
 
@@ -10,7 +11,7 @@ const CardapioService = {
         throw new Error("Token não encontrado.");
       }
 
-      const response = await axios.post('http://localhost:8080/api/cardapio', cardapioData, {
+      const response = await axios.post(`${config.backendUrl}/cardapio`, cardapioData, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -24,7 +25,7 @@ const CardapioService = {
   async getCardapio(){
     const token = JSON.parse(localStorage.getItem("user"))?.jwt;
     
-    const response = await axios.get(`http://localhost:8080/api/cardapio`, {
+    const response = await axios.get(`${config.backendUrl}/cardapio`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

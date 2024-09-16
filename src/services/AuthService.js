@@ -1,10 +1,9 @@
 import axios from 'axios';
-
-const API_URL = 'http://localhost:8080/api/auth';
+import config from '../config';
 
 const login = async (username, password) => {
   try{
-    const response = await axios.post(`${API_URL}/authenticate`, {username, password});
+    const response = await axios.post(`${config.backendUrl}/auth/authenticate`, {username, password});
     if(response.data.jwt){
       localStorage.setItem('user', JSON.stringify(response.data));
     }
@@ -16,7 +15,7 @@ const login = async (username, password) => {
 
 const register = async (registerRequest) => {
   try{
-    const response = await axios.post(`${API_URL}/register`, registerRequest);
+    const response = await axios.post(`${config.backendUrl}/auth/register`, registerRequest);
     return response.data;
   }catch(error){
     throw new Error('Erro ao registrar: ' + error.response.data.message || 'Erro desconhecido');

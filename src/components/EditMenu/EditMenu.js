@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import config from "../../config";
 import axios from "axios";
 import ClienteService from "../../services/ClientService";
 import "./EditMenu.css";
-
-const API_URL_CARDAPIO = "http://localhost:8080/api/cardapio";
 
 const EditMenu = ({ cardapio }) => {
   const [itens, setItens] = useState(cardapio.itens || []);
@@ -46,7 +45,7 @@ const EditMenu = ({ cardapio }) => {
     };
 
     try {
-      await axios.put(`${API_URL_CARDAPIO}/${cardapio.id}`, cardapioData, {
+      await axios.put(`${config.backendUrl}/${cardapio.id}`, cardapioData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

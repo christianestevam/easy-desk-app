@@ -4,6 +4,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import EditMenu from "../../components/EditMenu/EditMenu";
+import config from "../../config";
 
 const Menu = () => {
   const [cardapio, setCardapio] = useState(null);
@@ -17,7 +18,7 @@ const Menu = () => {
       try {
 
           const response = await axios.get(
-            `http://localhost:8080/api/cardapio`,
+            `${config.backendUrl}/cardapio`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,

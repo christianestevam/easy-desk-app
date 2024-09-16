@@ -1,4 +1,5 @@
 import axios from "axios";
+import config from "../config";
 
 const TableService = {
   
@@ -11,7 +12,7 @@ const TableService = {
       }
 
       const response = await axios.get(
-        `http://localhost:8080/api/mesa`,
+        `${config.backendUrl}/mesa`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -37,7 +38,7 @@ const TableService = {
       }
 
       const response = await axios.post(
-        "http://localhost:8080/api/mesa",
+        `${config.backendUrl}/mesa`,
         newTable,
         {
           headers: {
@@ -63,7 +64,7 @@ const TableService = {
       }
 
       const response = await axios.delete(
-        `http://localhost:8080/api/mesa/${tableId}`,
+        `${config.backendUrl}/mesa/${tableId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -89,7 +90,7 @@ const TableService = {
       }
 
       const response = await axios.put(
-        `http://localhost:8080/api/mesa/${tableId}/disponibilidade`,
+        `${config.backendUrl}/mesa/${tableId}/disponibilidade`,
         { disponibilidade },
         {
           headers: {

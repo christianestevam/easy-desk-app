@@ -1,4 +1,5 @@
 import axios from "axios";
+import config from "../config";
 
 const ClienteService = {
 
@@ -10,7 +11,7 @@ const ClienteService = {
         throw new Error("Token não encontrado.");
       }
 
-      const response = await axios.get("http://localhost:8080/api/cliente", {
+      const response = await axios.get(`${config.backendUrl}/cliente`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
