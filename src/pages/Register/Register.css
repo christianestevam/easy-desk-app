@@ -124,7 +124,6 @@ button {
   background-color: #f0f0f0;
 }
 
-/* Media query para telas pequenas */
 @media (max-width: 900px) {
   .main-register {
     flex-direction: column;

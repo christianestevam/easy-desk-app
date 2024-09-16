@@ -11,7 +11,7 @@ const register = async (restaurantData) => {
     }
 
     const response = await axios.post(
-      `${API_URL}/restaurantes`,
+      `${API_URL}/restaurante`,
       restaurantData,
       {
         headers: {

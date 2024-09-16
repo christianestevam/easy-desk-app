@@ -1,20 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./styles/index.css";
+import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import ProtectedRoute from "./services/ProtectedRoute";
 
-import App from "./pages/App";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import App from "./pages/App/App";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+
 import RegisterRestaurantForm from "./pages/RegisterRestaurantForm/RegisterRestaurantForm";
 import RegisterMenuForm from "./pages/RegisterMenuForm/RegisterMenuForm";
 
-import Dashboard from "./pages/Dashboard";
-import Menu from "./pages/Menu";
-import Config from "./pages/Config";
+import Orders from "./pages/Orders/Orders";
+import Menu from "./pages/Menu/Menu";
+import Tables from "./pages/Tables/Tables";
+import Config from "./pages/Config/Config";
 
 const router = createBrowserRouter([
   {
@@ -30,27 +32,35 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/dashboard",
+    path: "/orders",
     element: (
-      <ProtectedRoute>
-        <Dashboard />
-      </ProtectedRoute>
+      // <ProtectedRoute>
+        <Orders />
+      // </ProtectedRoute>
     ),
   },
   {
     path: "/menu",
     element: (
-      <ProtectedRoute>
+      // <ProtectedRoute>
         <Menu />
-      </ProtectedRoute>
+      // </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/tables",
+    element: (
+      // <ProtectedRoute>
+        <Tables />
+      // </ProtectedRoute>
     ),
   },
   {
     path: "/config",
     element: (
-      <ProtectedRoute>
+      // <ProtectedRoute>
         <Config />
-      </ProtectedRoute>
+      // </ProtectedRoute>
     ),
   },
   {

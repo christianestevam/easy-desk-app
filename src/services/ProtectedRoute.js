@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CheckRestaurant from "./CheckRestaurant";
+import ClienteService from "./ClientService";
 
 function ProtectedRoute({ children }) {
   const navigate = useNavigate();
@@ -15,9 +15,9 @@ function ProtectedRoute({ children }) {
         return;
       }
 
-      const hasRestaurant = await CheckRestaurant();
+      const RestauranteId = await ClienteService.getRestauranteId();
 
-      if (!hasRestaurant) {
+      if (!RestauranteId) {
         navigate("/register-restaurant");
       } else {
         setHasAccess(true);

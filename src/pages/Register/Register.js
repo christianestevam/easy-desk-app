@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import "../styles/Register.css";
-import logo from "../assets/Logotipo.svg";
+import "./Register.css";
+import logo from "../../assets/Logotipo.svg";
 
-import AuthService from "../services/AuthService";
-import clearJwt from "../services/ClearJwt";
+import AuthService from "../../services/AuthService";
+import clearJwt from "../../services/ClearJwt";
 
 function Register(){
   useEffect(() => {
@@ -17,11 +17,11 @@ function Register(){
   const [errorMessage, setErrorMessage] = useState("");
 
   const [formData, setFormData] = useState({
-    name: "",
-    document: "",
-    phone: "",
-    email: "",
-    password: "",
+    name: "Lucas Anthony",
+    document: "921",
+    phone: "859",
+    email: "llucas@teste.com",
+    password: "senha",
   });
 
   const handleChange = (e) => {

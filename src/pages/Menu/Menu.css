@@ -12,21 +12,25 @@
   margin-top: 20px;
 }
 
+.menu-content {
+  position: relative;
+}
+
 .mn-button {
   background-color: #1f4843;
+  width: 180px;
+  height: 24px;
+  text-align: center;
+  align-content: center;
   color: white;
   border-radius: 10px;
   font-weight: 600;
   display: inline;
   padding: 15px 20px;
-  text-align: center;
   display: inline-block;
-  
-  /* vergona alheia, perdi para o botão */
-  justify-content: center;
-  justify-items: center;
-  justify-self: center;
-  align-items: center;
-  align-self: center;
-  align-content: center;
+
+  position: absolute;
+
+  top: calc(50% - 27px);
+  left: calc(50% - 110px);
 }

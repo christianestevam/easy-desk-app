@@ -1,9 +1,9 @@
-import "../styles/App.css";
+import "./App.css";
 
 import { Link } from "react-router-dom";
 
-import logo from "../assets/Logotipo.svg";
-import figure from "../assets/Coffee shop-bro 1.png";
+import logo from "../../assets/Logotipo.svg";
+import figure from "../../assets/Coffee shop-bro 1.png";
 
 function App() {
   return (

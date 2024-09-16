@@ -1,19 +1,22 @@
 import axios from "axios";
 
 const ClienteService = {
-  async getRestauranteId(token) {
+
+  async getRestauranteId(){
     try {
+      const token = JSON.parse(localStorage.getItem("user"))?.jwt;
+
+      if (!token) {
+        throw new Error("Token não encontrado.");
+      }
+
       const response = await axios.get("http://localhost:8080/api/cliente", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
-      const restaurante = response.data.restaurantes && response.data.restaurantes.length > 0
-        ? response.data.restaurantes[0]
-        : null;
-
-      return restaurante ? restaurante.id : null;
+      return response.data.restaurante;
 
     } catch (error) {
       const errorMessage = error.response && error.response.data
@@ -22,6 +25,7 @@ const ClienteService = {
       throw new Error("Erro ao buscar restaurante: " + errorMessage);
     }
   },
+  
 };
 
 export default ClienteService;

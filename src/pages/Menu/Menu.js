@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../styles/Menu.css";
-import Sidebar from "../components/Sidebar";
+import "./Menu.css";
+import Sidebar from "../../components/Sidebar/Sidebar";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ClienteService from "../services/ClientService";
-import EditMenu from "../components/EditMenu/EditMenu";
+import EditMenu from "../../components/EditMenu/EditMenu";
 
 const Menu = () => {
   const [cardapio, setCardapio] = useState(null);
@@ -16,11 +15,9 @@ const Menu = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const restauranteId = await ClienteService.getRestauranteId(token);
 
-        if (restauranteId) {
           const response = await axios.get(
-            `http://localhost:8080/api/cardapios/restaurante/${restauranteId}`,
+            `http://localhost:8080/api/cardapio`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -29,9 +26,7 @@ const Menu = () => {
           );
 
           setCardapio(response.data);
-        } else {
-          setErrorMessage("Restaurante não encontrado.");
-        }
+
       } catch (error) {
         if (error.response && error.response.status === 403) {
           setCardapio(null);

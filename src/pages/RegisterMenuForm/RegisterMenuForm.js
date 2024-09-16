@@ -20,19 +20,6 @@ function RegisterMenuForm() {
 
   const token = JSON.parse(localStorage.getItem("user"))?.jwt;
 
-  useEffect(() => {
-    const fetchRestauranteId = async () => {
-      try {
-        const id = await ClienteService.getRestauranteId(token);
-        setRestauranteId(id);
-      } catch (error) {
-        setErrorMessage(error.message);
-      }
-    };
-
-    fetchRestauranteId();
-  }, [token]);
-
   const addItem = () => {
     setItens([
       ...itens,
@@ -68,11 +55,6 @@ function RegisterMenuForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!restauranteId) {
-      setErrorMessage("Restaurante não encontrado. Tente novamente.");
-      return;
-    }
-
     const cardapioData = {
       restauranteId,
       itens,
@@ -80,7 +62,7 @@ function RegisterMenuForm() {
 
     try {
       await CardapioService.createCardapio(cardapioData, token);
-      navigate("/dashboard");
+      navigate("/orders");
     } catch (error) {
       setErrorMessage(error.message);
     }
@@ -88,7 +70,7 @@ function RegisterMenuForm() {
 
   return (
     <div className="register-menu-form">
-      <Link className="back-button" to="/dashboard">
+      <Link className="back-button" to="/orders">
         Voltar
       </Link>
 

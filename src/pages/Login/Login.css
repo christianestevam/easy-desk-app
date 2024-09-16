@@ -138,45 +138,24 @@ button:hover {
   background-color: #163d3a;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .main-login {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('../assets/img_login.jpg');
+    background-image: url('../../assets/img_login.jpg');
     background-size: cover;
     background-position: center;
   }
 
   .left {
-    /* display: none; */
-    margin-bottom: 40px;
+    background-color: transparent;
+
   }
 
-  .logo {
-    max-width: 50%;
-    margin-bottom: 20px;
-  }
-
-  .background {
+  .background{
     display: none;
-  }
-
-  .right {
-    width: 100%;
-    padding: 0;
-    background-color: #ffffff00;
-  }
-
-  .login-container {
-    width: 100%;
-    max-width: 400px;
-    background-color: #FFFDFD;
-    /* padding: 20px; */
-    margin: 0;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }

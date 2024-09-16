@@ -3,9 +3,9 @@ import axios from "axios";
 import ClienteService from "../../services/ClientService";
 import "./EditMenu.css";
 
-const API_URL_CARDAPIO = "http://localhost:8080/api/cardapios";
+const API_URL_CARDAPIO = "http://localhost:8080/api/cardapio";
 
-const EditMenu = ({ cardapio, token }) => {
+const EditMenu = ({ cardapio }) => {
   const [itens, setItens] = useState(cardapio.itens || []);
   const [errorMessage, setErrorMessage] = useState("");
 

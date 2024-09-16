@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "../styles/Login.css";
-import img_login from "../assets/img_login.jpg";
-import logo from "../assets/Logotipo.svg";
-import AuthService from "../services/AuthService";
+import "./Login.css";
+import img_login from "../../assets/img_login.jpg";
+import logo from "../../assets/Logotipo.svg";
+import AuthService from "../../services/AuthService";
 import { Link, useNavigate } from "react-router-dom";
-import clearJwt from "../services/ClearJwt";
-import CheckRestaurant from "../services/CheckRestaurant";
+import clearJwt from "../../services/ClearJwt";
+import ClienteService from "../../services/ClientService";
 
 function Login() {
   const [username, setUsername] = useState("llucas@teste.com");
@@ -25,10 +25,11 @@ function Login() {
     try {
       const response = await AuthService.login(username, password);
       console.log("Login bem-sucedido:", response);
-      const hasRestaurant = await CheckRestaurant();
+
+      const hasRestaurant = await ClienteService.getRestauranteId();
 
       if (hasRestaurant) {
-        navigate("/dashboard");
+        navigate("/orders");
       } else {
         navigate("/register-restaurant");
       }

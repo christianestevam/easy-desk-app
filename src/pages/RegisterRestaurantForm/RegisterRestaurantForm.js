@@ -57,7 +57,7 @@ function RegisterRestaurantForm() {
     try {
       const response = await RegisterRestaurant.register(restaurantData);
       console.log("Registro de restaurante bem-sucedido:", response);
-      navigate("/dashboard");
+      navigate("/orders");
     } catch (error) {
       setErrorMessage("Erro ao cadastrar restaurante: " + error);
     }
