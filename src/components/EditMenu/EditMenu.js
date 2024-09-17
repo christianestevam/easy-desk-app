@@ -40,7 +40,7 @@ const EditMenu = ({ cardapio }) => {
     const restauranteId = await ClienteService.getRestauranteId(token);
 
     const cardapioData = {
-      restauranteId: restauranteId,
+      restauranteId: restauranteId.id,
       itens,
     };
 
