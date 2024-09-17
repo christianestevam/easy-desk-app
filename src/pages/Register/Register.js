@@ -17,11 +17,11 @@ function Register(){
   const [errorMessage, setErrorMessage] = useState("");
 
   const [formData, setFormData] = useState({
-    name: "teste",
-    document: "123",
-    phone: "123",
-    email: "teste@teste.com",
-    password: "teste",
+    name: "",
+    document: "",
+    phone: "",
+    email: "",
+    password: "",
   });
 
   // Função para formatar CPF ou CNPJ
