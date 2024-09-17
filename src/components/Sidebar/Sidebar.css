@@ -66,3 +66,10 @@
   width: 24px;
   height: auto;
 }
+
+.sidebar-logout-button {
+  color: #1f4843;
+  padding: 24px 10px;
+  text-align: center;
+  font-weight: 600;
+}

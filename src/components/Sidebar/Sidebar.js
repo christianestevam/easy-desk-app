@@ -63,6 +63,8 @@ function Sidebar() {
           </Link>
         </li>
       </ul>
+
+      <Link to="/" className='sidebar-logout-button'>Sair da conta</Link>
     </nav>
   );
 }

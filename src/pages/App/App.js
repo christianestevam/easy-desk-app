@@ -1,11 +1,16 @@
+import React, { useEffect } from "react";
 import "./App.css";
-
 import { Link } from "react-router-dom";
-
+import clearJwt from "../../services/ClearJwt";
 import logo from "../../assets/Logotipo.svg";
 import figure from "../../assets/Coffee shop-bro 1.png";
 
 function App() {
+
+  useEffect(() => {
+    clearJwt();
+  }, []);
+
   return (
     <div className="landing-page">
       <div className="lp-left">

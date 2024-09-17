@@ -45,7 +45,7 @@ const EditMenu = ({ cardapio }) => {
     };
 
     try {
-      await axios.put(`${config.backendUrl}/${cardapio.id}`, cardapioData, {
+      await axios.put(`${config.backendUrl}/cardapio/${cardapio.id}`, cardapioData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

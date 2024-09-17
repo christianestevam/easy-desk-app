@@ -17,18 +17,65 @@ function Register(){
   const [errorMessage, setErrorMessage] = useState("");
 
   const [formData, setFormData] = useState({
-    name: "Lucas Anthony",
-    document: "921",
-    phone: "859",
-    email: "llucas@teste.com",
-    password: "senha",
+    name: "teste",
+    document: "123",
+    phone: "123",
+    email: "teste@teste.com",
+    password: "teste",
   });
+
+  // Função para formatar CPF ou CNPJ
+  const formatDocument = (value) => {
+    value = value.replace(/\D/g, ""); // Remove tudo que não é dígito
+
+    if (value.length <= 11) {
+      // Formatação CPF
+      return value
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    } else if (value.length <= 14) {
+      // Formatação CNPJ
+      return value
+        .replace(/(\d{2})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,4})/, "$1/$2")
+        .replace(/(\d{4})(\d{1,2})$/, "$1-$2");
+    }
+
+    return value;
+  };
+
+  // Função para formatar telefone no formato (00) 00000-0000
+  const formatPhone = (value) => {
+    return value
+      .replace(/\D/g, "") // Remove tudo que não for número
+      .replace(/(\d{2})(\d)/, "($1) $2") // Coloca parênteses no DDD
+      .replace(/(\d{5})(\d)/, "$1-$2") // Coloca o hífen
+      .replace(/(-\d{4})\d+?$/, "$1"); // Limita o número
+  };
+
+  // Função para remover formatação e deixar apenas os números
+  const removeFormatting = (value) => {
+    return value.replace(/\D/g, ""); // Remove tudo que não é número
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    let formattedValue = value;
+
+    if (name === "document") {
+      formattedValue = formatDocument(value); // Aplica a formatação de CPF ou CNPJ
+    }
+
+    if (name === "phone") {
+      formattedValue = formatPhone(value); // Aplica a formatação de telefone
+    }
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: formattedValue,
     }));
   };
 
@@ -39,8 +86,8 @@ function Register(){
     try {
       const registerRequest = {
         nome: formData.name,
-        cnpjCpf: formData.document,
-        telefone: formData.phone,
+        cnpjCpf: removeFormatting(formData.document), // Remove formatação
+        telefone: removeFormatting(formData.phone), // Remove formatação
         email: formData.email,
         senha: formData.password,
       };
@@ -53,9 +100,8 @@ function Register(){
     }
   };
 
-  return(
+  return (
     <div className="main-register">
-
       <div className="left">
         <h1>Cadastre-se</h1>
         <h3>e simplifique seus pedidos!</h3>
@@ -130,7 +176,6 @@ function Register(){
               </button>
 
               <span>Já tem conta? <Link to="/login">Faça Login</Link></span>
-
             </div>
           </form>
         </div>

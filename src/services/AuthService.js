@@ -3,7 +3,7 @@ import config from '../config';
 
 const login = async (username, password) => {
   try{
-    const response = await axios.post(`${config.backendUrl}/auth/authenticate`, {username, password});
+    const response = await axios.post(`${config.backendUrl}/auth/login`, {username, password});
     if(response.data.jwt){
       localStorage.setItem('user', JSON.stringify(response.data));
     }
@@ -15,7 +15,7 @@ const login = async (username, password) => {
 
 const register = async (registerRequest) => {
   try{
-    const response = await axios.post(`${config.backendUrl}/auth/register`, registerRequest);
+    const response = await axios.post(`${config.backendUrl}/auth/registro`, registerRequest);
     return response.data;
   }catch(error){
     throw new Error('Erro ao registrar: ' + error.response.data.message || 'Erro desconhecido');

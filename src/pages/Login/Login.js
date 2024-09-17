@@ -8,8 +8,8 @@ import clearJwt from "../../services/ClearJwt";
 import ClienteService from "../../services/ClientService";
 
 function Login() {
-  const [username, setUsername] = useState("llucas@teste.com");
-  const [password, setPassword] = useState("senha");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
