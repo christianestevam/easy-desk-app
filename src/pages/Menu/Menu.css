@@ -1,0 +1,36 @@
+.menu {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.menu-content h2 {
+  color: #1f4843;
+  text-align: center;
+  font-weight: 800;
+  font-size: 28px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.menu-content {
+  position: relative;
+}
+
+.mn-button {
+  background-color: #1f4843;
+  width: 180px;
+  height: 24px;
+  text-align: center;
+  align-content: center;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  display: inline;
+  padding: 15px 20px;
+  display: inline-block;
+
+  position: absolute;
+
+  top: calc(50% - 27px);
+  left: calc(50% - 110px);
+}

@@ -1,0 +1,32 @@
+.order {
+  background-color: rgba(255, 255, 255, 0.842);
+  border: 1px solid black;
+  border-radius: 10px;
+
+  font-weight: 500;
+  margin-top: 14px;
+}
+
+.order-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 18px;
+}
+
+.order-buttons {
+  display: flex;
+}
+
+.order-button-remove {
+  background-color: #e93c3c;
+}
+.order-button-remove:hover {
+  background-color: #ce2d2d;
+}
+
+.order-button-change {
+  background-color: #005500;
+}
+.order-button-change:hover {
+  background-color: #003d00;
+}

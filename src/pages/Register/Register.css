@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.main-register {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+.left {
+  background-color: #1f4843;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.left h1 {
+  font-size: 48px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.left h3 {
+  font-size: 24px;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+.logo-small {
+  position: absolute;
+  bottom: 20px;
+  max-width: 150px;
+}
+
+.right {
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-container {
+  background-color: #fffdfd;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /*Lembrar de mudar isso tmb*/
+}
+
+.register-container h2 {
+  margin-bottom: 20px;
+  color: #1f4843;
+  font-weight: bold;
+  text-align: left;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: block;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #ffffff;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.form-buttons a{
+  display: inline;
+  color: #333;
+  font-weight: 600;
+}
+.form-buttons {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+button {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background-color: #1f4843;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #163d3a;
+}
+
+.login-btn {
+  background-color: white;
+  color: #1f4843;
+  border: 2px solid #1f4843;
+}
+
+.login-btn:hover {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 900px) {
+  .main-register {
+    flex-direction: column;
+  }
+
+  .left {
+    height: 40%;
+    justify-content: center;
+  }
+
+  .right {
+    height: 60%;
+  }
+
+  .register-container {
+    width: 90%;
+  }
+}

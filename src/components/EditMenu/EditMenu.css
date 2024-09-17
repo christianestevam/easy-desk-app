@@ -1,0 +1,30 @@
+.edit-menu-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.edit-menu button {
+  font-weight: 600;
+}
+
+.edit-menu-add-button {
+  margin: 20px;
+  height: min-content;
+  align-self: center;
+  text-align: start;
+  background-color: rgb(65, 151, 65);
+}
+.edit-menu-add-button:hover {
+  background-color: rgb(50, 128, 50);
+}
+
+.edit-menu-remove-button {
+  background-color: transparent;
+  color: rgb(177, 30, 30);
+  border: 1px solid rgb(177, 30, 30);
+}
+.edit-menu-remove-button:hover {
+  background-color: rgb(177, 30, 30);
+  color: white;
+}
