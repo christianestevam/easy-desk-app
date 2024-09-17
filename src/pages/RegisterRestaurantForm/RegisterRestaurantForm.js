@@ -10,17 +10,17 @@ function RegisterRestaurantForm() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const [restaurantData, setRestaurantData] = useState({
-    nome: "Lucas - RES",
-    cnpj: "123",
-    telefone: "321",
+    nome: "",
+    cnpj: "",
+    telefone: "",
     endereco: {
-      logradouro: "Rua acula",
-      numero: "0",
-      complemento: "Perto da galinha",
-      bairro: "Cedro",
-      cidade: "Quixas",
-      estado: "CE",
-      cep: "616161300"
+      logradouro: "",
+      numero: "",
+      complemento: "",
+      bairro: "",
+      cidade: "",
+      estado: "",
+      cep: ""
     },
   });
 
